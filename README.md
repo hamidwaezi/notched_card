@@ -2,6 +2,8 @@
 
 [![pub package](https://img.shields.io/pub/v/notched_card.svg)](https://pub.dev/packages/notched_card)
 
+
+
 A Flutter plugin that provides a `Card` widget with a customizable notch effect on different sides (top, bottom, left, or right). Enhance your UI with unique and modern designs!
 ## Screenshots
 
@@ -20,7 +22,7 @@ Add this to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  notched_card: latest_version
+  notched_card: 0.1.0
 ```
 
 Then, run:
