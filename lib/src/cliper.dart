@@ -1,18 +1,5 @@
 import 'package:flutter/material.dart';
 
-enum NotchCardDirs {
-  top,
-  bottom,
-  left,
-  right;
-
-  bool get isSide => this == NotchCardDirs.left || this == NotchCardDirs.right;
-
-  /// Returns true if the direction is right or bottom.
-  bool get isInverted =>
-      this == NotchCardDirs.bottom || this == NotchCardDirs.right;
-}
-
 final class NotchCardClipper extends CustomClipper<Path> {
   const NotchCardClipper({
     required this.shape,

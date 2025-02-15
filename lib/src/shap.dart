@@ -1,21 +1,33 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-import 'cliper.dart';
+enum NotchCardPosition {
+  top,
+  bottom,
+  left,
+  right;
+
+  bool get isSide =>
+      this == NotchCardPosition.left || this == NotchCardPosition.right;
+
+  /// Returns true if the direction is right or bottom.
+  bool get isInverted =>
+      this == NotchCardPosition.bottom || this == NotchCardPosition.right;
+}
 
 class CircularDirectionalNotchedRectangle extends NotchedShape {
-  final NotchCardDirs direction;
-  CircularDirectionalNotchedRectangle({this.direction = NotchCardDirs.top});
+  final NotchCardPosition position;
+  CircularDirectionalNotchedRectangle({this.position = NotchCardPosition.top});
 
-  Offset _getP1(Rect host, Rect guest, double r) => switch (direction) {
-        NotchCardDirs.top => Offset(-r, host.top - guest.center.dy),
-        NotchCardDirs.bottom => Offset(-r, host.bottom - guest.center.dy),
-        NotchCardDirs.left => Offset(host.left - guest.center.dx, r),
-        NotchCardDirs.right => Offset(host.right - guest.center.dx, r),
+  Offset _getP1(Rect host, Rect guest, double r) => switch (position) {
+        NotchCardPosition.top => Offset(-r, host.top - guest.center.dy),
+        NotchCardPosition.bottom => Offset(-r, host.bottom - guest.center.dy),
+        NotchCardPosition.left => Offset(host.left - guest.center.dx, r),
+        NotchCardPosition.right => Offset(host.right - guest.center.dx, r),
       };
 
   Offset _getP0(double a, double b, double s) =>
-      direction.isSide ? Offset(a, b + s) : Offset(a - s, b);
+      position.isSide ? Offset(a, b + s) : Offset(a - s, b);
 
   @override
   Path getOuterPath(Rect host, Rect? guest) {
@@ -23,11 +35,11 @@ class CircularDirectionalNotchedRectangle extends NotchedShape {
       return Path()..addRect(host);
     }
 
-    final double r = (direction.isSide ? guest.height : guest.width) / 2.0;
+    final double r = (position.isSide ? guest.height : guest.width) / 2.0;
 
     final Radius notchRadius = Radius.circular(r);
 
-    final double invertMultiplier = direction.isInverted ? -1.0 : 1.0;
+    final double invertMultiplier = position.isInverted ? -1.0 : 1.0;
 
     const double s1 = 15.0;
     const double s2 = 1.0;
@@ -49,7 +61,7 @@ class CircularDirectionalNotchedRectangle extends NotchedShape {
     p[0] = _getP0(a, b, s1); //Offset(a - s1, b);
     p[1] = Offset(a, b);
 
-    final double cmp = (direction.isSide
+    final double cmp = (position.isSide
         ? a < 0
             ? 1.0
             : -1.0
@@ -59,7 +71,7 @@ class CircularDirectionalNotchedRectangle extends NotchedShape {
 
     p[2] = cmp * p2yA > cmp * p2yB ? Offset(p2xA, p2yA) : Offset(p2xB, p2yB);
 
-    final double m = direction.isSide ? -1.0 : 1.0;
+    final double m = position.isSide ? -1.0 : 1.0;
     p[3] = Offset(m * -1.0 * p[2].dx, m * p[2].dy);
     p[4] = Offset(m * -1.0 * p[1].dx, m * p[1].dy);
     p[5] = Offset(m * -1.0 * p[0].dx, m * p[0].dy);
@@ -70,8 +82,8 @@ class CircularDirectionalNotchedRectangle extends NotchedShape {
 
     final Path path = Path();
 
-    switch (direction) {
-      case NotchCardDirs.top:
+    switch (position) {
+      case NotchCardPosition.top:
         path
           ..moveTo(host.left, host.top)
           ..lineTo(p[0].dx, p[0].dy)
@@ -82,7 +94,7 @@ class CircularDirectionalNotchedRectangle extends NotchedShape {
           ..lineTo(host.right, host.bottom)
           ..lineTo(host.left, host.bottom);
         break;
-      case NotchCardDirs.bottom:
+      case NotchCardPosition.bottom:
         path
           ..moveTo(host.left, host.top)
           ..lineTo(host.right, host.top)
@@ -92,7 +104,7 @@ class CircularDirectionalNotchedRectangle extends NotchedShape {
           ..arcToPoint(p[2], radius: notchRadius, clockwise: false)
           ..quadraticBezierTo(p[1].dx, p[1].dy, p[0].dx, p[0].dy)
           ..lineTo(host.left, host.bottom);
-      case NotchCardDirs.left:
+      case NotchCardPosition.left:
         path
           ..moveTo(host.left, host.bottom)
           ..lineTo(p[0].dx, p[0].dy)
@@ -102,7 +114,7 @@ class CircularDirectionalNotchedRectangle extends NotchedShape {
           ..lineTo(host.left, host.top)
           ..lineTo(host.right, host.top)
           ..lineTo(host.right, host.bottom);
-      case NotchCardDirs.right:
+      case NotchCardPosition.right:
         path
           ..moveTo(host.left, host.bottom)
           ..lineTo(host.left, host.top)
