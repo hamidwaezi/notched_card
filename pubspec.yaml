@@ -1,8 +1,9 @@
 name: notched_card
 description: "A Flutter plugin that provides a `Card` widget with a customizable notch effect on different sides (top, bottom, left, or right). Enhance your UI with unique and modern designs!."
-version: 0.1.0
 homepage: https://github.com/hamidwaezi/notched_card
+repository: https://github.com/hamidwaezi/notched_card
 
+version: 0.1.0
 environment:
   sdk: ^3.6.2
   flutter: ">=1.17.0"
