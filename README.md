@@ -12,17 +12,17 @@ A Flutter plugin that provides a `Card` widget with a customizable notch effect 
 | ![Top Notch](https://cdn.jsdelivr.net/gh/hamidwaezi/notched_card@cdn/assets/top.png) | ![Bottom Notch](https://cdn.jsdelivr.net/gh/hamidwaezi/notched_card@cdn/assets/bottom.png) | ![Left Notch](https://cdn.jsdelivr.net/gh/hamidwaezi/notched_card@cdn/assets/left.png) | ![Right Notch](https://cdn.jsdelivr.net/gh/hamidwaezi/notched_card@cdn/assets/right.png) |
 
 ## Features
-✅ Supports notch effect on **top, bottom, left, and right** sides of the card.
-✅ Fully customizable card appearance.
-✅ Easy integration with existing Flutter projects.
-✅ Works with any child widget inside the card.
+✅ Supports notch effect on **top, bottom, left, and right** sides of the card.<br>
+✅ Fully customizable card appearance.<br>
+✅ Easy integration with existing Flutter projects.<br>
+✅ Works with any child widget inside the card.<br>
 
 ## Installation
 Add this to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  notched_card: 0.1.0
+  notched_card: ^0.1.0
 ```
 
 Then, run:
