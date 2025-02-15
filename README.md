@@ -1,39 +1,26 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# GitHub Assets Branch
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+This branch is dedicated to storing assets (such as images, icons, and other static files) for use in online projects. The assets can be accessed via GitHub's Content Delivery Network (CDN), allowing seamless integration into applications and websites.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+You can use the assets hosted in this branch by referencing them through GitHub's raw content URL. The general format for accessing files is:
 
-```dart
-const like = 'sample';
+```
+https://cdn.jsdelivr.net/gh/user/repo@version/file
 ```
 
-## Additional information
+### Example
+If you have an image named `logo.png` stored in a folder called `images`, you can access it using:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```
+https://cdn.jsdelivr.net/gh/hamidwaezi/notched_card@cdn/assets/top.png
+
+```
+
+Replace `<user>`, `<repo>`, and `<version or branch>` with the appropriate values from your GitHub repository.
+
+## Best Practices
+- Store only necessary assets to keep the branch lightweight.
+- Use meaningful filenames and folder structures.
+- Avoid storing sensitive information in this branch.
