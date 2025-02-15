@@ -77,7 +77,7 @@ class MyApp extends StatelessWidget {
 
 | Top Notch | Bottom Notch | Left Notch | Right Notch |
 |-----------|-------------|------------|-------------|
-| ![Top Notch](assets/top_notch.png) | ![Bottom Notch](assets/bottom_notch.png) | ![Left Notch](assets/left_notch.png) | ![Right Notch](assets/right_notch.png) |
+| ![Top Notch](https://cdn.jsdelivr.net/gh/hamidwaezi/notched_card@cdn/assets/top.png) | ![Bottom Notch](https://cdn.jsdelivr.net/gh/hamidwaezi/notched_card@cdn/assets/bottom.png) | ![Left Notch](https://cdn.jsdelivr.net/gh/hamidwaezi/notched_card@cdn/assets/left.png) | ![Right Notch](https://cdn.jsdelivr.net/gh/hamidwaezi/notched_card@cdn/assets/right.png) |
 
 ## Contributions
 Contributions are welcome! If you find any issues or have feature requests, feel free to open an [issue](https://github.com/yourusername/notched_card/issues) or submit a pull request.
