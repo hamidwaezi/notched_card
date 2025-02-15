@@ -3,7 +3,7 @@ description: "A Flutter plugin that provides a `Card` widget with a customizable
 homepage: https://github.com/hamidwaezi/notched_card
 repository: https://github.com/hamidwaezi/notched_card
 
-version: 0.1.0
+version: 0.1.1
 environment:
   sdk: ^3.6.2
   flutter: ">=1.17.0"
