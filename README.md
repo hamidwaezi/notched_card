@@ -111,7 +111,7 @@ class MyApp extends StatelessWidget {
 
 
 ## Contributions
-Contributions are welcome! If you find any issues or have feature requests, feel free to open an [issue](https://github.com/yourusername/notched_card/issues) or submit a pull request.
+Contributions are welcome! If you find any issues or have feature requests, feel free to open an [issue](https://github.com/hamidwaezi/notched_card/issues) or submit a pull request.
 
 ## License
 MIT License. See the [LICENSE](LICENSE) file for details.
